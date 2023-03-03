@@ -34,12 +34,8 @@ defmodule Shunt do
   end
 
   def rules([]) do [] end
-  #----rule 3/4----
   def rules([{_,0}|t]) do rules(t) end
-  #----rule 1/2----
   def rules([{num, n}, {num, m}|t]) do rules([{num, n+m}|t]) end
-  #onödig
-  #def rules([{num1,n}, {num2, m}|t]) do [{num1, n} | rules([{num2, m}|t])] end
   def rules([h|t]) do [h| rules(t)] end
 
 end
